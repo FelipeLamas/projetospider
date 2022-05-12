@@ -1,19 +1,21 @@
-function handleMouseEnter(){
+function handleMouseEnter() {
     this.classList.add('s-card--hovered');
-}
-
-function handleMouseLeave(){
+    document.body.id = `${this.id}-hovered`;
+  }
+  
+  function handleMouseLeave() {
     this.classList.remove('s-card--hovered');
-}
-
-function addEventListernerssToCards() {
+    document.body.id = '';
+  }
+  
+  function addEventListenersToCards() {
     const cardElements = document.getElementsByClassName('s-card');
-    for(let index = 0; index < cardElements.length; index++){
-        const card = cardElements[index];
-        card.addEventListener('mouseenter', handleMouseEnter);
-        card.addEventListerner('mouseleave', handleMouseLeave);
+    
+    for (let index = 0; index < cardElements.length; index++) {
+      const card = cardElements[index];
+      card.addEventListener('mouseenter', handleMouseEnter);
+      card.addEventListener('mouseleave', handleMouseLeave);
     }
-}
-
-document.addEventListener("DOMContentLoaded", addEventListernerssToCards, false);
-
+  }
+  
+  document.addEventListener("DOMContentLoaded", addEventListenersToCards, false);
